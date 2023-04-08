@@ -87,7 +87,7 @@ public class Terminal {
     }
 
     public String echo(String line) {
-        String output = line;
+        String output = line.substring(5);
         return output;
     }
 
