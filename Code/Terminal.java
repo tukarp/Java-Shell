@@ -13,15 +13,19 @@ public class Terminal {
     public Terminal() {
         this.path = Path.of(System.getProperty("user.home"));
     }
+    
     public String pwd(){
         return path.toString();
     }
+    
     public void cd(String path){
         this.path = this.path.resolve(path);
     }
+    
     public static String formatDirBraces(String text) {
         return "[" + text + "]";
     }
+    
     public static String formatDirColor(String text) {
         return ConsoleColors.BLUE + text + ConsoleColors.RESET;
     }
@@ -40,11 +44,10 @@ public class Terminal {
         int end = begin + substring.length();
 
         String endMarker = text.startsWith(ConsoleColors.BLUE) ? ConsoleColors.BLUE : ConsoleColors.RESET;
-
         result += text.substring(0, begin);
-        result+=ConsoleColors.RED_BOLD;
+        result += ConsoleColors.RED_BOLD;
         result += text.substring(begin, end);
-        result+=endMarker;
+        result += endMarker;
         result += text.substring(end);
 
         return result;
@@ -55,8 +58,7 @@ public class Terminal {
                 Boolean.compare(Files.isDirectory(p2),Files.isDirectory(p1));
         c = c.thenComparing(p -> p.getFileName().toString());
 
-        boolean isFiltered = substring!=null;
-
+        boolean isFiltered = substring != null;
         try (Stream<Path> stream = Files.list(path)) {
             return stream
                     .filter(isFiltered ? currentPath -> currentPath.getFileName().toString().contains(substring) : currentPath -> true)
@@ -120,8 +122,10 @@ public class Terminal {
         return date;
     }
 
-    public void historyAdd(String string) {
-        History.add(string);
+    public void historyAdd(String command) {
+        if(!command.isEmpty()) {
+            History.add(command);
+        }
     }
 
     public void historyClear() {
@@ -129,8 +133,8 @@ public class Terminal {
     }
 
     public void history() {
-        for(var string : History) {
-            System.out.println(string);
+        for(var command : History) {
+            System.out.println(command);
         }
     }
 
