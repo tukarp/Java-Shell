@@ -48,7 +48,7 @@ public class TerminalCLI {
                     case "rmdir" -> terminal.rmdir(commandArr[1]);
                     case "pwd" -> writer.write(terminal.pwd() + "\n");
                     case "date" -> writer.write(terminal.date().toString() + "\n");
-                    case "echo" -> writer.write(terminal.echo(commandArr[1]) + "\n");
+                    case "echo" -> writer.write(terminal.echo(command) + "\n");
                     case "find" -> writer.write(terminal.find(commandArr[1]).toString() + "\n");
                     case "ls" -> writer.write(runLs(Arrays.copyOfRange(commandArr, 1, commandArr.length)) + "\n");
 
