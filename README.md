@@ -19,3 +19,7 @@
 - ```history``` - diplays commands history,
 - ```history -c``` - clears commands history,
 - ```clear``` - clears terminal,
+
+### How it works:
+
+![Terminal](https://github.com/tukarp/Terminal/blob/main/Images/Screenshot.png)
