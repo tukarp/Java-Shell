@@ -162,7 +162,6 @@ public class Terminal {
     }
 
     public void rmdir(String directoryName) {
-        System.out.println("here");
         File directory = new File(String.valueOf(getActualPath(directoryName)));
         deleteDirectory(directory);
     }
