@@ -1,4 +1,4 @@
-# Terminal
+# Java Terminal
 
 ## Terminal Simulator written in Java.
 
@@ -22,4 +22,4 @@
 
 ### How it works:
 
-![Terminal](https://github.com/tukarp/Terminal/blob/main/Images/Screenshot.png)
+![Java Terminal](https://github.com/tukarp/Java-Terminal/blob/main/Images/Screenshot.png)
