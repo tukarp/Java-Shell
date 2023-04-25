@@ -1,10 +1,10 @@
-import java.io.*;
-import java.util.*;
-import java.nio.file.Path;
-import java.nio.file.Files;
-import java.util.stream.Stream;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
+import java.io.*;
 
 public class Terminal {
     private List<String> History = new ArrayList<String>();
@@ -118,8 +118,7 @@ public class Terminal {
     }
 
     public Date date() {
-        Date date = new Date(System.currentTimeMillis());
-        return date;
+        return new Date(System.currentTimeMillis());
     }
 
     public void historyAdd(String command) {
