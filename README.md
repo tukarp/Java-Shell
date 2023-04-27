@@ -1,6 +1,6 @@
-# Shell Simulator
+# Java Shell
 
-## Shell Simulator written in Java.
+## Shell written in Java.
 
 ### Commands:
 
