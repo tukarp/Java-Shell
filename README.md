@@ -23,3 +23,9 @@
 ### How it works:
 
 ![Shell Simulator](https://github.com/tukarp/Shell-Simulator/blob/main/Images/Screenshot.png)
+
+### Installation
+
+```
+https://github.com/tukarp/Shell-Simulator.git
+```
