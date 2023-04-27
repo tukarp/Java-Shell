@@ -1,6 +1,6 @@
-# Java Terminal
+# Shell Simulator
 
-## Terminal Simulator written in Java.
+## Shell Simulator written in Java.
 
 ### Commands:
 
@@ -22,4 +22,4 @@
 
 ### How it works:
 
-![Java Terminal](https://github.com/tukarp/Java-Terminal/blob/main/Images/Screenshot.png)
+![Shell Simulator](https://github.com/tukarp/Shell-Simulator/blob/main/Images/Screenshot.png)
