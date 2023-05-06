@@ -29,5 +29,5 @@
 Clone repository
 
 ```
-https://github.com/tukarp/Shell-Simulator.git
+https://github.com/tukarp/Java-Shell.git
 ```
