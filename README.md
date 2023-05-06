@@ -1,6 +1,6 @@
 # Java Shell
 
-## Shell written in Java.
+## Shell made in Java.
 
 ### Commands:
 
