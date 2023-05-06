@@ -2,7 +2,7 @@
 
 ## Shell made in Java.
 
-### Commands:
+### Commands
 
 - ```pwd``` - prints working directory,
 - ```ls``` - lists the content of directory,
@@ -20,11 +20,13 @@
 - ```history -c``` - clears commands history,
 - ```clear``` - clears terminal,
 
-### How it works:
+### How it works
 
-![Shell Simulator](https://github.com/tukarp/Shell-Simulator/blob/main/Images/Screenshot.png)
+![Java Shell](https://github.com/tukarp/Java-Shell/blob/main/Images/Screenshot.png)
 
 ### Installation
+
+Clone repository
 
 ```
 https://github.com/tukarp/Shell-Simulator.git
