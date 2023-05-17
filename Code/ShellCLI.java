@@ -37,6 +37,7 @@ public class ShellCLI {
                 // Flush writer
                 writer.flush();
             } catch(IOException e){
+                // Catch IOException
                 e.printStackTrace();
             }
         }
