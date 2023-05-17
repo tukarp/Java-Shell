@@ -94,8 +94,10 @@ public class ShellCLI {
 
         // Check if parameters contain "--color"
         if(Arrays.asList(parameters).contains("--color")) {
+            // Format directory color
             dirFormatFunction = Shell::formatDirColor;
         } else {
+            // Format directory braces
             dirFormatFunction = Shell::formatDirBraces;
         }
         // Return formatted entries
