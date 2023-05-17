@@ -111,6 +111,7 @@ public class Shell {
                     .map(isFiltered ? spath -> formatFiltered(spath, substring) : spath -> spath)
                     .collect(Collectors.toList());
         } catch (IOException e) {
+            // Catch IOException
             return new ArrayList<>();
         }
     }
@@ -123,6 +124,7 @@ public class Shell {
                     .map(Path::toString)
                     .collect(Collectors.toList());
         } catch (IOException e){
+            // Catch IOException
             e.printStackTrace();
         }
         // Return empty list
@@ -224,6 +226,7 @@ public class Shell {
             // Create new file
             file.createNewFile();
         } catch (IOException e) {
+            // Catch IOException
             throw new RuntimeException(e);
         }
     }
@@ -236,6 +239,7 @@ public class Shell {
             // Create new directory
             Files.createDirectory(Path.of(file + "\\"));
         } catch (IOException e) {
+            // Catch IOException
             throw new RuntimeException(e);
         }
     }
