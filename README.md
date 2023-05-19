@@ -2,10 +2,6 @@
 
 ## Shell made in Java.
 
-### Requirements
-
-- ```Java```
-
 ### Commands
 
 - ```pwd``` - prints working directory,
@@ -28,10 +24,12 @@
 
 ![Java Shell](https://github.com/tukarp/Java-Shell/blob/main/Images/Screenshot.png)
 
+### Requirements
+
+- ```Java```
+
 ### Installation
 
-Clone repository
-
 ```
-https://github.com/tukarp/Java-Shell.git
+git clone https://github.com/tukarp/Java-Shell.git
 ```
