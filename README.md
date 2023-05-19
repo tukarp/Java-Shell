@@ -2,6 +2,10 @@
 
 ## Shell made in Java.
 
+### Requirements
+
+- ```Java```
+
 ### Commands
 
 - ```pwd``` - prints working directory,
