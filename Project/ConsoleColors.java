@@ -1,3 +1,4 @@
+// Console colors class
 public class ConsoleColors {
     // RESET
     public static final String RESET = "\033[0m";  // TEXT RESET

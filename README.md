@@ -4,10 +4,11 @@
 
 ### Commands
 
+- ```help``` - displays all commands,
 - ```pwd``` - prints working directory,
 - ```ls``` - lists the content of directory,
 - ```cd``` - changes directory,
-- ```echo``` - displayes lines of text,
+- ```echo``` - displays lines of text,
 - ```find``` - searches for files that follow the pattern,
 - ```cat``` - prints files contents,
 - ```tac``` - prints files contents in reverse order,
@@ -16,9 +17,10 @@
 - ```mkdir``` - creates directory,
 - ```rmdir``` - removes directory,
 - ```date``` - prints current date and time,
-- ```history``` - diplays commands history,
-- ```history -c``` - clears commands history,
+- ```history``` - displays commands history,
+- ```history clear``` - clears commands history,
 - ```clear``` - clears terminal,
+- ```exit``` - exits the shell.
 
 ### How it works
 

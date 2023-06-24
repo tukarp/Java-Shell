@@ -9,11 +9,8 @@ import java.io.*;
 // Shell class
 public class Shell {
     // Allocate variables
-    // History string list variable
-    private final List<String> History = new ArrayList<>();
-
-    // Path variable
-    private Path path;
+    private final List<String> History = new ArrayList<>();  // History list variable
+    private Path path;  // Path variable
 
     // Constructor
     public Shell() {
@@ -56,6 +53,28 @@ public class Shell {
         return result;
     }
 
+    // Print all commands method
+    public void help() {
+        System.out.println("""
+                - `help` - displays all commands,
+                - `pwd` - prints working directory,
+                - `ls` - lists the content of directory,
+                - `cd` - changes directory,
+                - `echo` - displays lines of text,
+                - `find` - searches for files that follow the pattern,
+                - `cat` - prints files contents,
+                - `tac` - prints files contents in reverse order,
+                - `touch` - creates file,
+                - `rm` - removes file,
+                - `mkdir` - creates directory,
+                - `rmdir` - removes directory,
+                - `date` - prints current date and time,
+                - `history` - displays commands history,
+                - `history clear` - clears commands history,
+                - `clear` - clears terminal,
+                - `exit` - exits the shell.""");
+    }
+
     // Print path method
     public String pwd(){
         // Return path as string
@@ -74,6 +93,7 @@ public class Shell {
         if(fileName.contains("\\")) {
             // Return path of fileName
            return Path.of(fileName);
+        // Otherwise
         } else {
             // Return path of fileName in current directory
             return Path.of((this.path + "\\" + fileName));
@@ -84,7 +104,8 @@ public class Shell {
     public List<String> ls(Function<String, String> formatDir, String substring) {
         // Create comparator
         Comparator<Path> c = (p1, p2) ->
-                Boolean.compare(Files.isDirectory(p2),Files.isDirectory(p1));
+                Boolean.compare(Files.isDirectory(p2),Files.isDirectory(p1));  // Compare files
+        // Get file name
         c = c.thenComparing(p -> p.getFileName().toString());
 
         // Return list of files in current directory
@@ -94,9 +115,9 @@ public class Shell {
         try (Stream<Path> stream = Files.list(path)) {
             // Return list of files in current directory
             return stream
-                    .filter(isFiltered ? currentPath -> currentPath.getFileName().toString().contains(substring) : currentPath -> true)
-                    .sorted(c)
-                    .map(path -> {
+                    .filter(isFiltered ? currentPath -> currentPath.getFileName().toString().contains(substring) : currentPath -> true)  // Filter files
+                    .sorted(c)  // Sort files
+                    .map(path -> {  // Map files
                         String spath = path.getFileName().toString();
                         // Check if path is directory
                         if(Files.isDirectory(path)) {
@@ -108,8 +129,8 @@ public class Shell {
                         }
                     })
                     // Check if path is filtered
-                    .map(isFiltered ? spath -> formatFiltered(spath, substring) : spath -> spath)
-                    .collect(Collectors.toList());
+                    .map(isFiltered ? spath -> formatFiltered(spath, substring) : spath -> spath)  // Format filtered text
+                    .collect(Collectors.toList());  // Collect files
         } catch (IOException e) {
             // Catch IOException
             return new ArrayList<>();
@@ -120,14 +141,14 @@ public class Shell {
     public List<String> find(String s) {
         try(Stream<Path> stream = Files.walk(path)) {
             // Return list of files in current directory
-            return stream.filter(currentPath -> currentPath.getFileName().toString().contains(s))
-                    .map(Path::toString)
-                    .collect(Collectors.toList());
+            return stream.filter(currentPath -> currentPath.getFileName().toString().contains(s))  // Filter files
+                    .map(Path::toString)  // Map files
+                    .collect(Collectors.toList());  // Collect files
         } catch (IOException e){
             // Catch IOException
             e.printStackTrace();
         }
-        // Return empty list
+        // Otherwise return empty list
         return Collections.emptyList();
     }
 
@@ -275,5 +296,11 @@ public class Shell {
         }
         // Delete file itself
         file.delete();
+    }
+
+    // Exit program method
+    public void exit() {
+        // Exit program
+        System.exit(0);
     }
 }

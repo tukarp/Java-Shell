@@ -5,31 +5,40 @@ import java.io.*;
 
 // ShellCLI class
 public class ShellCLI {
+    // Constant logo variable
+    private static final String LOGO = """
+                    _____ __         ____
+                   / ___// /_  ___  / / /
+                   \\__ \\/ __ \\/ _ \\/ / /\s
+                  ___/ / / / /  __/ / / \s
+                 /____/_/ /_/\\___/_/_/  \s
+                                   \s""";
+
     // Allocate variables
-    // Buffered output stream variable
-    private BufferedOutputStream outputStream;
-
-    // Buffered reader and writer variables
-    private final BufferedWriter writer;
-    private final BufferedReader reader;
-
-    // Shell variable
-    private final Shell shell;
+    private BufferedOutputStream outputStream;  // Output stream variable
+    private final BufferedWriter writer;  // Writer variable
+    private final BufferedReader reader;  // Reader variable
+    private final Shell shell;  // Shell variable
 
     // Constructor
     public ShellCLI(InputStream in, OutputStream out) {
         // Initialize variables
-        this.writer = new BufferedWriter(new OutputStreamWriter(out));
-        this.reader = new BufferedReader(new InputStreamReader(in));
-        this.outputStream = new BufferedOutputStream(outputStream);
-        this.shell = new Shell();
+        this.writer = new BufferedWriter(new OutputStreamWriter(out));  // Initialize writer
+        this.reader = new BufferedReader(new InputStreamReader(in));  // Initialize reader
+        this.outputStream = new BufferedOutputStream(outputStream);  // Initialize output stream
+        this.shell = new Shell();  // Initialize shell
     }
 
     // Event loop method
     public void eventLoop(){
+        // Print logo
+        System.out.println(LOGO);
+
         // Infinite loop
         while(true){
             try {
+                // Print prompt
+                System.out.print(shell.pwd() + " $ ");
                 // Assign line to next line in reader
                 String line = reader.readLine();
                 // Run command
@@ -52,12 +61,15 @@ public class ShellCLI {
         shell.historyAdd(command);
 
         // Check if command is "history clear"
-        if(command.equals("history -c")) {
+        if(command.equals("history clear")) {
             // Clear history
             shell.historyClear();
+        // Otherwise
         } else {
             // Switch statement for commands
             switch(commandArr[0]) {
+                case "help" -> shell.help();  // Print help
+                case "exit" -> shell.exit();  // Exit program
                 case "clear" -> shell.clear();  // Clear screen
                 case "history" -> shell.history();  // Print history
                 case "rm" -> shell.rm(commandArr[1]);  // Remove file
@@ -79,13 +91,15 @@ public class ShellCLI {
         }
     }
 
-    // Format printing files method
+    // Filter prefix
     private final String filterPrefix = "--filter=";
+
+    // Run list files method
     public String runLs(String[] parameters) {
         // Check if parameters contain "--filter="
-        Optional<String> filterParameter = Arrays.stream(parameters)
-                .filter(entry -> entry.startsWith(filterPrefix))
-                .findFirst();
+        Optional<String> filterParameter = Arrays.stream(parameters)  // Convert parameters to stream
+                .filter(entry -> entry.startsWith(filterPrefix))  // Filter parameters
+                .findFirst();  // Find first parameter
 
         // Get substring of filter parameter
         String substring = filterParameter.map(s -> s.substring(filterPrefix.length())).orElse(null);
@@ -93,10 +107,11 @@ public class ShellCLI {
         // Create function for formatting directories
         Function<String, String> dirFormatFunction;
 
-        // Check if parameters contain "--color"
+        // If parameters contain "--color"
         if(Arrays.asList(parameters).contains("--color")) {
             // Format directory color
             dirFormatFunction = Shell::formatDirColor;
+        // Otherwise
         } else {
             // Format directory braces
             dirFormatFunction = Shell::formatDirBraces;
