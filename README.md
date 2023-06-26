@@ -4,7 +4,11 @@
 
 ### This repository contains my *Java* implementation of *Shell* application. This project was primarily developed during my *Object Oriented Programming* classes in 2022, with subsequent updates, code changes, new commands and finalization completed by me.
 
-![Shell](Images/Shell.png)
+![Shell](https://github.com/tukarp/Java-Shell/blob/main/Images/Shell.png)
+
+## Project Showcase
+
+https://github.com/tukarp/Java-Shell/assets/114019481/46bcbc18-1608-499a-ab58-dd675eec3afd
 
 ### Commands
 
@@ -25,10 +29,6 @@
 - ```history clear``` - clears commands history
 - ```clear``` - clears terminal
 - ```exit``` - exits the shell
-
-## Showcase
-
-
 
 ## Download
 
